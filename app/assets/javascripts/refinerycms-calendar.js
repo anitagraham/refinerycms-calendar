@@ -14,5 +14,5 @@
 //= require jquery-ui
 //= require chosen.jquery
 //= require datepair
-//= require jquery.datepair.js
+//= require jquery.datepair
 //= require refinery/calendar
