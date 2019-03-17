@@ -1,7 +1,14 @@
 jQuery ->
-  datetimes = $(".datetime_range").datetimepicker
-    ampm: true
-    dateFormat: 'M d, yy'
-    changeMonth: true
-    changeYear: true
-    numberOfMonths: 2
+# initialize input widgets first
+  $('.datetimepicker .time').timepicker({
+    'showDuration': true,
+    'timeFormat': 'g:ia'
+  })
+
+  $('.datetimepicker .date').datepicker({
+    'format': 'd/m/yyyy',
+    'autoclose': true
+  })
+
+  # initialize datepair
+  $('.start_and_end').datepair();

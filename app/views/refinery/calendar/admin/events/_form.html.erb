@@ -1,41 +1,47 @@
-<%= form_for [refinery, :calendar_admin, @event] do |f| -%>
-  <%= render '/refinery/admin/error_messages', :object => @event, :include_object_name => true %>
+<%= form_for [refinery, :calendar_admin, @event] do |f| %>
+  <%= render '/refinery/admin/error_messages', object: @event, include_object_name: true %>
 
   <div class="field">
-    <%= f.label :title -%>
-    <%= f.text_field :title, :class => 'larger widest'  -%>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'larger widest'  %>
   </div>
 
   <div class="field">
     <p>
       <%= f.check_box :featured %>
-      <%= f.label :featured, :class => 'stripped' %>
+      <%= f.label :featured, class: 'stripped' %>
     </p>
   </div>
 
-  <div class="field">
-    <%= f.label :from -%>
-    <%= f.date_field :from, :class => 'datetime_range'  -%>
+<fieldset class="start_and_end">
+  <div class="field datetimepicker">
+    <%= f.label :from_date %>
+    <%= f.datetime_local_field :from_date, class: 'date start datetime_range'  %>
+    <%= f.label :from_time %>
+    <%= f.datetime_local_field :from_time, class: 'time start datetime_range'  %>
   </div>
 
-  <div class="field">
-    <%= f.label :to -%>
-    <%= f.date_field :to, :class => 'datetime_range'  -%>
+  <div class="field datetimepicker">
+    <%= f.label :to_date %>
+    <%= f.datetime_local_field :to_date, class: 'date end datetime_range'  %>
+    <%= f.label :to_time %>
+    <%= f.datetime_local_field :to_time, class: 'time end datetime_range'  %>
   </div>
+</fieldset>
 
   <div class="field">
-    <%= f.label :registration_link -%>
-    <%= f.text_field :registration_link, :class => 'larger widest'  -%>
+    <%= f.label :registration_link %>
+    <%= f.text_field :registration_link, class: 'larger widest'  %>
   </div>
 
   <div class="field">
     <%= f.label :venue_id %>
-    <%= f.collection_select :venue_id, @venues, :id, :name, { :include_blank => 'None' }, :class => 'chzn-select', :'data-placeholder' => 'Search Venues', :style => 'width: 300px;' %>
+    <%= f.collection_select :venue_id, @venues, :id, :name, { include_blank: 'None' }, class: 'chzn-select', :'data-placeholder' => 'Search Venues', style: 'width: 300px;' %>
   </div>
 
   <div class="field">
-    <%= f.label :excerpt -%>
-    <%= f.text_area :excerpt, :size => '65x5' -%>
+    <%= f.label :excerpt %>
+    <%= f.text_area :excerpt, size: '65x5' %>
   </div>
 
   <div class="field">
@@ -43,14 +49,14 @@
       <ul id='page_parts'>
         <% [:description].each_with_index do |part, part_index| %>
           <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
-            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/calendar/event", :default => part.to_s.titleize), "##{part}" %>
+            <%= link_to t("#{part}", scope: "activerecord.attributes.refinery/calendar/event", default: part.to_s.titleize), "##{part}" %>
           </li>
         <% end %>
       </ul>
       <div id='page_part_editors'>
         <% [:description].each do |part| %>
           <div class='page_part' id='<%= part %>'>
-            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+            <%= f.text_area part, rows: 20, class: 'wymeditor widest' %>
           </div>
         <% end %>
       </div>
@@ -58,11 +64,11 @@
 
   </div>
 
-  <%= render '/refinery/admin/form_actions', :f => f,
-             :continue_editing => false,
-             :delete_title => t('refinery.calendar.admin.events.event.delete'),
-             :delete_confirmation => t('refinery.admin.delete.message', :title => @event.title) %>
-<% end -%>
+  <%= render '/refinery/admin/form_actions', f: f,
+             continue_editing: false,
+             delete_title: t('refinery.calendar.admin.events.event.delete'),
+             delete_confirmation: t('refinery.admin.delete.message', title: @event.title) %>
+<% end %>
 <% content_for :stylesheets do %>
   <%= stylesheet_link_tag 'chosen' %>
 <% end %>
