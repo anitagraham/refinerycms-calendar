@@ -13,7 +13,7 @@ end
 # Database Configuration
 unless ENV["TRAVIS"]
   gem "activerecord-jdbcsqlite3-adapter", :platform => :jruby
-  gem "sqlite3", :platform => :ruby
+  gem "sqlite3", '~>1.3.6', :platform => :ruby
 end
 
 if !ENV["TRAVIS"] || ENV["DB"] == "mysql"
@@ -31,6 +31,10 @@ gem "jruby-openssl", :platform => :jruby
 
 group :development, :test do
   gem 'rspec-its'
+end
+
+group :development do
+  gem 'listen'
 end
 
 group :test do

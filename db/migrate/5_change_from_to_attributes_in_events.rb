@@ -1,4 +1,4 @@
-class ChangeFromToAttributesInEvents < ActiveRecord::Migration
+class ChangeFromToAttributesInEvents < ActiveRecord::Migration[4.2]
   def up
 
     add_column :refinery_calendar_events, :starts_at, :datetime

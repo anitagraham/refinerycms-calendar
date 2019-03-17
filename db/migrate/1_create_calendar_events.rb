@@ -1,4 +1,4 @@
-class CreateCalendarEvents < ActiveRecord::Migration
+class CreateCalendarEvents < ActiveRecord::Migration[4.2]
 
   def up
     create_table :refinery_calendar_events do |t|

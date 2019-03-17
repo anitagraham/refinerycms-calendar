@@ -8,28 +8,27 @@ module Refinery
         refinery_login
 
         describe "events list" do
-          before(:each) do
-            FactoryBot.create(:event, :title => "UniqueTitleOne")
-            FactoryBot.create(:event, :title => "UniqueTitleTwo")
-          end
+          let!(:events){FactoryBot.create_list(:event, 2)}
 
-          it "shows two items" do
+          it "shows all items" do
             visit refinery.calendar_admin_events_path
-            expect(page).to have_content("UniqueTitleOne")
-            expect(page).to have_content("UniqueTitleTwo")
+            expect(page).to have_selector('li.record', count:  2)
           end
         end
 
         describe "create" do
+
+          let!(:venue){FactoryBot.create(:venue, name: 'Best Venue')}
           before(:each) do
             visit refinery.calendar_admin_events_path
-
             click_link "Add New Event"
           end
 
-          context "valid data" do
-            it "should succeed" do
+          context "when valid data is entered" do
+            it "creates an event" do
+              save_and_open_page
               fill_in "Title", :with => "This is a test of the first string field"
+              select('Best Venue', from: 'event_venue_id' )
               click_button "Save"
 
               expect(page).to have_content("'This is a test of the first string field' was successfully added.")
@@ -37,19 +36,18 @@ module Refinery
             end
           end
 
-          context "invalid data" do
-            it "should fail" do
+          context "when no data entered" do
+            it "returns an error" do
               click_button "Save"
-
               expect(page).to have_content("Title can't be blank")
               expect(Refinery::Calendar::Event.count).to eq(0)
             end
           end
 
-          context "duplicate" do
-            before(:each) { FactoryBot.create(:event, :title => "UniqueTitle") }
+          context "when a duplicate title is entered" do
+            let!(:event){ FactoryBot.create(:event, :title => "UniqueTitle")}
 
-            it "should fail" do
+            it "will not create the event" do
               visit refinery.calendar_admin_events_path
 
               click_link "Add New Event"
@@ -65,9 +63,9 @@ module Refinery
         end
 
         describe "edit" do
-          before(:each) { FactoryBot.create(:event, :title => "A title") }
+          let!(:event) { FactoryBot.create(:event, :title => "A title") }
 
-          it "should succeed" do
+          it "changes an event title" do
             visit refinery.calendar_admin_events_path
 
             within ".actions" do
@@ -83,9 +81,9 @@ module Refinery
         end
 
         describe "destroy" do
-          before(:each) { FactoryBot.create(:event, :title => "UniqueTitleOne") }
+          let!(:event) { FactoryBot.create(:event, :title => "UniqueTitleOne") }
 
-          it "should succeed" do
+          it "deletes the event" do
             visit refinery.calendar_admin_events_path
 
             click_link "Remove this event forever"
