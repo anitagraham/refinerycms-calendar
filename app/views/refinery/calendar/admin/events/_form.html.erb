@@ -15,17 +15,17 @@
 
 <fieldset class="start_and_end">
   <div class="field datetimepicker">
-    <%= f.label :from_date %>
-    <%= f.datetime_local_field :from_date, class: 'date start datetime_range'  %>
-    <%= f.label :from_time %>
-    <%= f.datetime_local_field :from_time, class: 'time start datetime_range'  %>
+    <%= f.label "From" %>
+    <%= f.date_local_field :from_date, class: 'date start datetime_range'  %>
+    <%= f.label "From" %>
+    <%= f.time_local_field :from_time, class: 'time start datetime_range'  %>
   </div>
 
   <div class="field datetimepicker">
-    <%= f.label :to_date %>
-    <%= f.datetime_local_field :to_date, class: 'date end datetime_range'  %>
-    <%= f.label :to_time %>
-    <%= f.datetime_local_field :to_time, class: 'time end datetime_range'  %>
+    <%= f.label "To" %>
+    <%= f.date_local_field :to_date, class: 'date end datetime_range'  %>
+    <%= f.label "To" %>
+    <%= f.time_local_field :to_time, class: 'time end datetime_range'  %>
   </div>
 </fieldset>
 
