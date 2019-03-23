@@ -1,6 +1,7 @@
 require 'refinerycms-core'
 require 'friendly_id'
-require 'jquery-ui-rails'
+# require 'time_splitter'
+# require 'jquery-ui-rails'
 
 module Refinery
   autoload :CalendarGenerator, 'generators/refinery/calendar/calendar_generator'

@@ -7,7 +7,7 @@ module Refinery
 
         crudify :'refinery/calendar/event',
                 sortable: false,
-                order: 'starts_at DESC'
+                order: 'starts_at ASC'
 
         protected
 
@@ -23,7 +23,7 @@ module Refinery
 
         def permitted_event_params
           [
-            :title, :from, :to, :registration_link,
+            :title, :from, :from_date, :from_time, :to, :to_date, :to_time, :registration_link,
             :venue_id, :excerpt, :description,
             :featured, :position
           ]

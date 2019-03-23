@@ -1,8 +1,8 @@
 en:
   refinery:
     plugins:
-      venues:
-        Events: Events
+      events:
+        title: Events
       venues:
         title: Venues
       refinery_calendar:

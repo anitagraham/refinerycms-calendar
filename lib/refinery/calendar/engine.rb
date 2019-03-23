@@ -14,18 +14,21 @@ module Refinery
         end
 
         Rails.application.config.assets.precompile += %w(
-          chosen.jquery.min.js
-          jquery.ui.timepicker.addon.js
-          refinery/calendar.js
-
-          chosen.css
-          jquery-ui.css
-          refinery/calendar.css
+          refinerycms-calendar.js
+          refinerycms-calendar.css
         )
+      end
+
+      def self.register_calendar(tab)
+        tab.name = 'Details'
+        tab.partial = '/refinery/calendar/admin/events/tabs/event_details'
       end
 
       config.after_initialize do
         Refinery.register_extension(Refinery::Calendar)
+        Refinery::Calendar::Tab.register do |tab|
+          register_calendar tab
+        end
       end
     end
   end

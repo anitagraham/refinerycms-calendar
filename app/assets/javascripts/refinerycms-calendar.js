@@ -10,9 +10,9 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery-ui
-//= require chosen.jquery
+//= require jquery.timepicker
+//= require jquery-ui/datepicker
 //= require datepair
 //= require jquery.datepair
-//= require refinery/calendar
+//= require refinery/init_edit_interface.js
+//= require refinery/datepair_init

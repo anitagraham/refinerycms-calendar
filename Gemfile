@@ -10,6 +10,9 @@ git "https://github.com/refinery/refinerycms", branch: "master" do
   end
 end
 
+gem 'time_splitter', git: "https://github.com/paulodiovani/time_splitter"
+
+
 # Database Configuration
 unless ENV["TRAVIS"]
   gem "activerecord-jdbcsqlite3-adapter", :platform => :jruby
@@ -45,3 +48,4 @@ end
 if File.exist? local_gemfile = File.expand_path("../.gemfile", __FILE__)
   eval File.read(local_gemfile)
 end
+

@@ -14,4 +14,5 @@ Gem::Specification.new do |s|
   # Runtime dependencies
   s.add_dependency    'refinerycms-core',    '~> 4.0.0'
   s.add_dependency    'friendly_id',         '~> 5.1'
+  s.add_dependency    'time_splitter',       '~> 1.1'
 end

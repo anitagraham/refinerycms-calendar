@@ -1,0 +1,41 @@
+<div class='wym_skin_refinery' id='page_event_date_time'>
+
+  <fieldset id="datetime">
+    <legend>Start and End times</legend>
+    <div class="linkedDateTime">
+      <div class="field">
+        <%= f.label "From Date" %>
+        <%= f.text_field local_date(:date_from), class: 'date start datetime_range'  %>
+      </div>
+      <div class="field">
+        <%= f.label "From Time" %>
+        <%= f.text_field local_time(:time_from), class: 'time start datetime_range'  %>
+      </div>
+    </div>
+    <div class="linkedDateTime">
+      <div class="field" >
+        <%= f.label "To Date" %>
+        <%= f.text_field local_date(:date_to), class: 'date end datetime_range'  %>
+      </div>
+      <div class="field">
+        <%= f.label "To Time" %>
+        <%= f.text_field  local_time(:time_to), class: 'time end datetime_range'  %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset id="venueAndTickets">
+    <legend>Venue and Ticketing</legend>
+    <div class="field">
+      <%= f.label :registration_link %>
+      <%= f.text_field :registration_link, class: 'widest'  %>
+    </div>
+
+    <div class="field">
+      <%= f.label :venue_id %>
+      <%= f.collection_select :venue_id, @venues, :id, :name, { include_blank: 'None' }, class: 'chzn-select', :'data-placeholder' => 'Search Venues', style: 'width: 300px;' %>
+    </div>
+  </fieldset>
+
+
+</div>
