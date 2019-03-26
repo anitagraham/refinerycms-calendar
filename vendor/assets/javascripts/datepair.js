@@ -76,7 +76,6 @@
 				jq(input).datepicker('update', dateObj);
 			}
 		};
-
 		this.container = container;
 		this.settings = simpleExtend(this._defaults, options);
 

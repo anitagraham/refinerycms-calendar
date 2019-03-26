@@ -8,3 +8,5 @@
 </aside>
 
 <%= render '/refinery/admin/make_sortable', :tree => false if !searching? and ::Refinery::Calendar::Admin::EventsController.sortable? and ::Refinery::Calendar::Event.count > 1 %>
+<% content_for :stylesheets, stylesheet_link_tag('refinerycms-calendar.css') %>
+<% content_for :javascripts, javascript_include_tag('refinerycms-calendar') %>

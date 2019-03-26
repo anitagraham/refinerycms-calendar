@@ -2,15 +2,17 @@ module Refinery
   module Calendar
     include ActiveSupport::Configurable
 
-    config_accessor  :page_url,
-                     :date_format,
+    config_accessor  :date_format,
                      :time_format,
-                     :time_zone
+                     :date_delta,
+                     :time_delta,
+                     :page_url
 
-    self.page_url = '/calendar'
-    self.date_format = '%A, %d %b %Y'
-    self.time_format = '%l:%M %p'
-    self.time_zone = true
+    self.date_format = 'dd/mm/yyy'
+    self.time_format = 'g:ia'
+    self.date_delta = '0'        # same day
+    self.time_delta = '60'       # 60 minutes
 
+    self.page_url    = '/calendar'
   end
 end

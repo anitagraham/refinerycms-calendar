@@ -29,7 +29,6 @@ fieldset {
   &#datetime {
     .linkedDateTime div {
       display: inline-block;
-      margin-right: 1rem;
     }
   }
   input {
@@ -41,4 +40,13 @@ fieldset {
       font-size: 0.85rem;
     }
   }
+}
+
+// event index
+.record {
+  &.past {color: lightgray}
+  a {text-decoration: underline #5c9ccc}
+  a.past {color: lightgray}
+
+  label + .datetime_range, .datetime_range + .datetime_range {display: inline-block;  }
 }

@@ -29,6 +29,7 @@ module Refinery
         Refinery::Calendar::Tab.register do |tab|
           register_calendar tab
         end
+
       end
     end
   end

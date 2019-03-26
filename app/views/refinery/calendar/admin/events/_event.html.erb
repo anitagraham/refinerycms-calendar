@@ -1,17 +1,17 @@
-<li class='clearfix record  <%= event.currency  %>' id="<%= dom_id(event) %>">
- <span class="actions">
-  <%= action_icon :preview, refinery.calendar_event_path(event), t('.view_live_html') %>
-  <%= action_icon :delete, refinery.calendar_admin_event_path(event), t('.delete'),
-                  :class => 'cancel confirm-delete',
-                  :confirm => t('refinery.admin.delete.message', :title => event.title) %>
-  </span>
-
+<li class='clearfix record  <%= event.tense  %>' id="<%= dom_id(event) %>">
+  <span class="datetime"><%= event.from.strftime("%a, %-d %b, %Y %l:%M %P") %></span>
   <%=
     link_to "#{event.title}",
             refinery.edit_calendar_admin_event_path(event),
             class: :title,
             title: 'Click to edit the event'
   %>
-  <span class="datetime"><%= event.from.strftime("%a, %-d %b, %Y %l:%M %P") %></span>
+
+  <span class="actions">
+  <%= action_icon :preview, refinery.calendar_event_path(event), t('.view_live_html') %>
+    <%= action_icon :delete, refinery.calendar_admin_event_path(event), t('.delete'),
+                    :class => 'cancel confirm-delete',
+                    :confirm => t('refinery.admin.delete.message', :title => event.title) %>
+  </span>
 
 </li>

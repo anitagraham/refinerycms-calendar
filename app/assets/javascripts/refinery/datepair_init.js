@@ -1,22 +1,39 @@
- $(document).ready(function () {
-    // initialize input widgets first
 
-    var datetime = $('#datetime');
-    datetime.find('.time').timepicker({
-      'showDuration': true,
-      'timeFormat': 'g:ia'
-    });
+function extend(obj, src) {
+  Object.keys(src).forEach(function(key) { obj[key] = src[key]; });
+  return obj;
+}
 
-    datetime.find('.date').datepicker(
-      {
-        format: 'dd/mm/yyyy',
-        autoclose: true
-      }
-    );
+ const handleDates = (options) => {
 
-// initialize datepair
-    datetime.datepair({
-      defaultDateDelta: 0,
-      defaultTimeDelta: 10800000    // 3 hours
-    })
-});
+   const defaults = {
+     dateDelta: 0,
+     timeDelta: '30'
+   };
+
+   options = extend(defaults, options);
+
+   let datetime = $('#datetime');
+
+   datetime.find('.time').timepicker({
+     'showDuration': true,
+     'timeFormat': options.timeFormat
+   });
+
+   datetime.find('.date').datepicker({
+     format: options.dateFormat,
+     autoclose: true
+   });
+
+   let datepair = datetime.datepair({
+     defaultDateDelta: options.dateDelta,         // days
+     defaultTimeDelta: options.timeDelta*60*1000,  // hours -> milliseconds
+     parseDate: (input) => {
+       return $(input).datepicker('getDate');
+
+     },
+     updateDate: (input, dateObj) => {
+       return $(input).datepicker('setDate', dateObj);
+     }
+   });
+ };
