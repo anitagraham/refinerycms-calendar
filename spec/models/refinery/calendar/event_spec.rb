@@ -18,14 +18,7 @@ module Refinery
       describe "upcoming events" do
         let(:past_event)   {FactoryBot.create(:event, starts_at: 2.hours.ago, title: 'Done')}
         let(:future_event) {FactoryBot.create(:event, starts_at: 2.hours.from_now, title: "Soon")}
-        # before do
-        #   FactoryBot.create(:event, starts_at: 2.hours.ago)
-        #   FactoryBot.create(:event, starts_at: 2.hours.from_now)
-        #   FactoryBot.create(:event, starts_at: 2.days.from_now)
-        #   FactoryBot.create(:event, starts_at: 2.weeks.from_now)
-        # end
-
-        it "does not include events that start in the past" do
+               it "does not include events that start in the past" do
           expect(Event.upcoming).not_to include(past_event)
         end
 
@@ -53,6 +46,18 @@ module Refinery
 
       end
 
+      describe "past, present and future" do
+        let(:past_event)   {FactoryBot.create(:event, starts_at: 2.days.ago, title: 'Done')}
+        let(:present_event){FactoryBot.create(:event, starts_at: 1.hours.ago, ends_at: 1.hour.from_now, title: 'Now')}
+        let(:future_event) {FactoryBot.create(:event, starts_at: 2.days.from_now, title: "Soon")}
+
+        it 'classifies events correctly' do
+          expect(past_event.tense).to eq('past')
+          expect(present_event.tense).to eq('present')
+          expect(future_event.tense).to eq('future')
+
+        end
+      end
     end
   end
 end

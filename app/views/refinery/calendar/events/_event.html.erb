@@ -1,8 +1,5 @@
 <div class="event">
-  <time class="date"><%= event.span_time %>
-  </time>
-
-  <h1><%= link_to event.title, refinery.calendar_event_path(event) %></h1>
-
-  <p><%= event.excerpt %></p>
+    <h1><%= link_to event.title, refinery.calendar_event_path(event) %></h1>
+  <time class="date"><%= event.from %>  </time>
+ <%= event.excerpt.html_safe %>
 </div>

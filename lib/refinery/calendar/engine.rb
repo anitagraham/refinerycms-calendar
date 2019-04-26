@@ -24,7 +24,9 @@ module Refinery
         tab.partial = '/refinery/calendar/admin/events/tabs/event_details'
       end
 
+
       config.after_initialize do
+
         Refinery.register_extension(Refinery::Calendar)
         Refinery::Calendar::Tab.register do |tab|
           register_calendar tab

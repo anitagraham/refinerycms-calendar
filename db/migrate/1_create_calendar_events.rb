@@ -8,7 +8,7 @@ class CreateCalendarEvents < ActiveRecord::Migration[4.2]
       t.string :registration_link
       t.string :excerpt
       t.text :description
-      t.integer :position
+      t.integer :positionw
       t.boolean :featured
       t.string :slug
       t.integer :venue_id

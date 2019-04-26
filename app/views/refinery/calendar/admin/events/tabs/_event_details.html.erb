@@ -1,19 +1,19 @@
 <div class='wym_skin_refinery' id='page_event_date_time'>
    <fieldset id="datetime">
-    <legend>Start and End times</legend>
+    <h2>Start and End times</h2>
 
       <div class="field">
         <%= f.label "From" %>
-        <%= f.text_field local_date(:from_date), class: 'date start datetime_range', placeholder: 'date'  %>
+        <%= f.text_field :from_date, class: 'date start datetime_range', placeholder: 'date'  %>
         <%= f.text_field :from_time, class: 'time start datetime_range', placeholder: 'time'  %>
         <%= f.label "To" %>
-        <%= f.text_field  :to_time, class: 'time end datetime_range', placeholder: 'time'  %>
+        <%= f.text_field :to_time, class: 'time end datetime_range', placeholder: 'time'  %>
         <%= f.text_field :to_date, class: 'date end datetime_range', placeholder: 'date'  %>
       </div>
   </fieldset>
 
   <fieldset id="venueAndTickets">
-    <legend>Venue and Ticketing</legend>
+    <h2>Venue and Ticketing</h2>
     <div class="field">
       <%= f.label :registration_link %>
       <%= f.text_field :registration_link, class: 'widest'  %>
@@ -27,8 +27,8 @@
 </div>
 <script>
   dateOptions = {
-    dateFormat: '<%=Refinery::Calendar.date_format %>',
-    timeFormat: '<%=Refinery::Calendar.time_format %>',
+    dateFormat: '<%=Refinery::Calendar.js_date_format %>',
+    timeFormat: '<%=Refinery::Calendar.js_time_format %>',
     dateDelta: '<%=Refinery::Calendar.date_delta %>',
     timeDelta: <%= Refinery::Calendar.time_delta %>
   };

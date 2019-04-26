@@ -21,7 +21,7 @@ function extend(obj, src) {
    });
 
    datetime.find('.date').datepicker({
-     format: options.dateFormat,
+     dateFormat: options.dateFormat,
      autoclose: true
    });
 

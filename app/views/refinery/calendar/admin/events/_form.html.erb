@@ -23,6 +23,9 @@
             <%= link_to t("#{part}", scope: "activerecord.attributes.refinery/calendar/event", default: part.to_s.titleize), "##{part}" %>
           </li>
         <% end %>
+        <li class='ui-state-default'>
+          <%= link_to t("main_image", scope: "activerecord.attributes.refinery/calendar/event", default: 'Main Image'), "#main_image" %>
+        </li>
         <% ::Refinery::Calendar.tabs.each_with_index do |tab, tab_index| %>
           <li class='ui-state-default' id="custom_<%= tab.name %>_tab">
             <%= link_to tab.name.titleize, "#custom_tab_#{tab_index}" %>
@@ -36,6 +39,16 @@
             <%= f.text_area part, :rows => 20, :class => 'visual_editor widest' %>
           </div>
         <% end %>
+        <div class="page_part" id='main_image'>
+          <%= f.label :main_image %>
+          <%= render :partial => "/refinery/admin/image_picker", :locals => {
+              :f => f,
+              :field => :main_image_uid,
+              :image => f.object.main_image,
+              :toggle_image_display => false
+          }
+          %>
+        </div>
         <% ::Refinery::Calendar.tabs.each_with_index do |tab, tab_index| %>
           <div class='page_part' id='<%= "custom_tab_#{tab_index}" %>'>
             <%= render tab.partial, f: f %>
@@ -50,7 +63,4 @@
              delete_title: t('refinery.calendar.admin.events.event.delete'),
              delete_confirmation: t('refinery.admin.delete.message', title: @event.title) %>
 
-
-  <% content_for :stylesheets, stylesheet_link_tag('refinerycms-calendar.css') %>
-  <% content_for :javascripts, javascript_include_tag('refinerycms-calendar') %>
 <% end %>

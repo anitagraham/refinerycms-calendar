@@ -9,19 +9,18 @@ module Refinery
 
       def index
         @events = Event.upcoming.order(starts_at: :desc)
-
         present @page
       end
 
       def show
         @event = Event.friendly.find(params[:id])
-
         present @page
       end
 
       def archive
         @events = Event.archive.order(starts_at: :desc)
-        render template: 'refinery/calendar/events/index'
+        # render template: 'refinery/calendar/events/index'
+        present @page
       end
 
       protected

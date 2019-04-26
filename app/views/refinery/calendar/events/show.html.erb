@@ -3,14 +3,14 @@
 <% end %>
 
 <% content_for :body do %>
-  <h4><%= t('.details', default: 'Event Details') %></h4>
-  <h5><%= @event.venue_name %></h5>
+  <h5><%= @event.venue.name %></h5>
 
-  <p><%= t('.from', default: 'From') %> <%= l @event.from %><br>
+  <p><%= t('.from', default: 'From') %> <%= l @event.from, format: :long %><br>
     <% if @event.to %>
-     <%= t('.to', default: 'To') %> <%= l @event.to %>
+     <%= t('.to', default: 'To') %> <%= l @event.to, format: :long %>
     <%end %>
   </p>
+
 
   <% if @event.registration_link.present? %>
     <p><%= link_to t('.register', default: 'Register for this event'), @event.registration_link %></p>
@@ -21,7 +21,6 @@
   <% end -%>
 
   <div class="event_description">
-    <h4><%= @event.excerpt %></h4>
     <%=raw @event.description %>
   </div>
 <% end %>
