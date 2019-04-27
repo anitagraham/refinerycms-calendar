@@ -11,7 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery.timepicker
-//= require jquery-ui/widgets/datepicker
+//= require jquery-ui/datepicker
 //= require datepair
 //= require jquery.datepair
 //= require refinery/init_edit_interface.js
