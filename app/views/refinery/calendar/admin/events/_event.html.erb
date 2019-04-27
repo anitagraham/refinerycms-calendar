@@ -1,19 +1,20 @@
 <li class='clearfix record  <%= event.tense  %> <%= event.featured ? "featured" : "" %>' id="<%= dom_id(event) %>">
-  <span class="datetime"><%= event.from.strftime("%a, %-d %b, %Y %l:%M %P") %></span>
+  <span class="datetime"><%= event.from.strftime("#{Refinery::Calendar.ruby_date_format} #{Refinery::Calendar.ruby_time_format}") unless event.from.blank? %></span>
 
   <%=
     link_to "#{event.title}",
             refinery.edit_calendar_admin_event_path(event),
             class: :title,
-            title: 'Click to edit the event'
+            title: t('.edit')
   %>
 
   <span class="actions">
+    <%= action_icon :edit, refinery.edit_calendar_admin_event_path(event), title: t('.edit') %>
     <%= action_icon :preview, refinery.calendar_event_path(event), t('.view_live_html') %>
 
     <%= action_icon :delete, refinery.calendar_admin_event_path(event), t('.delete'),
-                    :class => 'cancel confirm-delete',
-                    :confirm => t('refinery.admin.delete.message', :title => event.title) %>
+                    class: 'cancel confirm-delete',
+                    confirm: t('refinery.admin.delete.message', title: event.title) %>
   </span>
 
 </li>

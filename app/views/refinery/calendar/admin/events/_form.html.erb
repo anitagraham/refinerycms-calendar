@@ -24,7 +24,7 @@
           </li>
         <% end %>
         <li class='ui-state-default'>
-          <%= link_to t("main_image", scope: "activerecord.attributes.refinery/calendar/event", default: 'Main Image'), "#main_image" %>
+          <%= link_to t("poster", scope: "activerecord.attributes.refinery/calendar/event", default: 'Main Image'), "#poster" %>
         </li>
         <% ::Refinery::Calendar.tabs.each_with_index do |tab, tab_index| %>
           <li class='ui-state-default' id="custom_<%= tab.name %>_tab">
@@ -39,12 +39,12 @@
             <%= f.text_area part, :rows => 20, :class => 'visual_editor widest' %>
           </div>
         <% end %>
-        <div class="page_part" id='main_image'>
-          <%= f.label :main_image %>
+        <div class="page_part" id='poster'>
+          <%= f.label :poster %>
           <%= render :partial => "/refinery/admin/image_picker", :locals => {
               :f => f,
-              :field => :main_image_uid,
-              :image => f.object.main_image,
+              :field => :poster_uid,
+              :image => f.object.poster,
               :toggle_image_display => false
           }
           %>

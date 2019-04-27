@@ -12,7 +12,7 @@ module Refinery
 
     # these formats must match
     self.js_date_format   = "d MM, yy"        # 5 January, 2019
-    self.ruby_date_format = "%d %B, %Y"      # 5 January, 2019
+    self.ruby_date_format = "%d %B, %Y"       # 5 January, 2019
 
     self.js_time_format   = 'g:ia'
     self.ruby_time_format = '%l:%M%P'

@@ -26,7 +26,6 @@ module Refinery
 
           context "when valid data is entered" do
             it "creates an event" do
-              save_and_open_page
               fill_in "Title", :with => "This is a test of the first string field"
               select('Best Venue', from: 'event_venue_id' )
               click_button "Save"
