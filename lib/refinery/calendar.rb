@@ -1,6 +1,6 @@
 require 'refinerycms-core'
 require 'friendly_id'
-require 'time_splitter'
+require 'time_splitter/accessors'
 require 'jquery-ui-rails'
 
 module Refinery
