@@ -16,4 +16,5 @@ Gem::Specification.new do |s|
   s.add_dependency    'friendly_id',         '~> 5.1'
   s.add_dependency    'refinerycms-page-images'
   s.add_dependency    'jquery-ui-rails'
+  s.add_dependency    'time_splitter'
 end
