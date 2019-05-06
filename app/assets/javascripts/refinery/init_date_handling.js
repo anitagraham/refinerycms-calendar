@@ -4,7 +4,7 @@ function extend(obj, src) {
   return obj;
 }
 
-let handleDates;
+var handleDates;
 handleDates = (options) => {
 
   const defaults = {
