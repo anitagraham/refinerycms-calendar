@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.files             = Dir["{app,config,db,lib,vendor}/**/*"] + ["readme.md"]
 
   # Runtime dependencies
-  s.add_dependency    'refinerycms-core',    '~> 4.0.0'
+  s.add_dependency    'refinerycms-core',    '~> 4.0'
   s.add_dependency    'friendly_id',         '~> 5.1'
   s.add_dependency    'refinerycms-page-images'
   s.add_dependency    'jquery-ui-rails'

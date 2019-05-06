@@ -33,7 +33,8 @@
     timeDelta: <%= Refinery::Calendar.time_delta %>
   };
   if (
-    document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)  ) {
+    document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll))
+      {
     handleDates(dateOptions)
   } else {
     document.addEventListener("DOMContentLoaded", handleDates(dateOptions));

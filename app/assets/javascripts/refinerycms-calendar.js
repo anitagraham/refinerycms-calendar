@@ -15,4 +15,4 @@
 //= require datepair
 //= require jquery.datepair
 //= require refinery/init_edit_interface.js
-//= require refinery/datepair_init
+//= require refinery/init_date_handling

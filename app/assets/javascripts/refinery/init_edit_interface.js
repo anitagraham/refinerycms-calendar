@@ -1,5 +1,3 @@
-// init_refinery_admin();
-// page_options.init(false);
 (function init_tabs() {
 
   $(document).ready(function () {

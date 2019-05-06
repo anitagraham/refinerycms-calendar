@@ -13,8 +13,7 @@ module Refinery
       friendly_id :title, :use => :slugged
 
       belongs_to :venue
-
-      dragonfly_accessor :poster
+      belongs_to :poster, class_name: '::Refinery::Image'
 
       validates :title, :presence => true, :uniqueness => true
 
@@ -38,7 +37,7 @@ module Refinery
       }
       scope :featured, -> {where featured: true}
       scope :upcoming, -> {where arel_table[:starts_at].gteq Time.now}
-      scope :archive, -> {where arel_table[:starts_at].lt Time.now}
+      scope :archive,  -> {where arel_table[:starts_at].lt Time.now}
 
       def tense
         if from.present? or to.present?
