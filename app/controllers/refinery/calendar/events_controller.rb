@@ -3,7 +3,7 @@ require 'responders'
 module Refinery
   module Calendar
     class EventsController < ::ApplicationController
-      before_action :find_page, except: :archive
+      before_action :find_page
 
       respond_to :html
 
@@ -19,7 +19,6 @@ module Refinery
 
       def archive
         @events = Event.archive.order(starts_at: :desc)
-        # render template: 'refinery/calendar/events/index'
         present @page
       end
 
