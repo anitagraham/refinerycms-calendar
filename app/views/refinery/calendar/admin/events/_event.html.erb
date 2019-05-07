@@ -1,5 +1,4 @@
 <li class='clearfix record  <%= event.tense  %> <%= event.featured ? "featured" : "" %>' id="<%= dom_id(event) %>">
-  <span class="datetime"><%= event.from.strftime("#{Refinery::Calendar.ruby_date_format} #{Refinery::Calendar.ruby_time_format}") unless event.from.blank? %></span>
 
   <%=
     link_to "#{event.title}",
@@ -7,7 +6,8 @@
             class: :title,
             title: t('.edit')
   %>
-
+  <span class="datetime"><%= event.from.strftime("#{Refinery::Calendar.ruby_date_format} #{Refinery::Calendar.ruby_time_format}") unless event.from.blank? %></span>
+  
   <span class="actions">
     <%= action_icon :edit, refinery.edit_calendar_admin_event_path(event), title: t('.edit') %>
     <%= action_icon :preview, refinery.calendar_event_path(event), t('.view_live_html') %>

@@ -44,7 +44,6 @@ fieldset {
 
 // event index
 .record {
-  &.featured:before { content: '\2728'; }
   &.past, a.past {color: lightgray}
   a {text-decoration: underline #002a80}
   span.datetime {
