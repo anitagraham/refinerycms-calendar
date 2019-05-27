@@ -1,4 +1,16 @@
 <div class='wym_skin_refinery' id='page_event_date_time'>
+  <fieldset id="datetime">
+    <h2>Start and End times</h2>
+
+    <div class="field">
+      <%= f.label "From" %>
+      <%= f.text_field :from_date, class: 'date start datetime_range', placeholder: 'date'  %>
+      <%= f.text_field :from_time, class: 'time start datetime_range', placeholder: 'time'  %>
+      <%= f.label "To" %>
+      <%= f.text_field :to_time, class: 'time end datetime_range', placeholder: 'time'  %>
+      <%= f.text_field :to_date, class: 'date end datetime_range', placeholder: 'date'  %>
+    </div>
+  </fieldset>
 
 </div>
 <script>
