@@ -21,7 +21,7 @@ module Refinery
 
       config.after_initialize do
         tabs = [
-          {title: 'Date and Time', partial: 'dateTime'},
+          {title: 'Date and Time', partial: 'date_time'},
           {title: 'Ticketing',     partial: 'tickets'},
           {title: 'Venue',         partial: 'venue'}
         ]

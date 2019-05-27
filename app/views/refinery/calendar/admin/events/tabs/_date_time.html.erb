@@ -1,0 +1,19 @@
+<div class='wym_skin_refinery' id='page_event_date_time'>
+
+</div>
+<script>
+  dateOptions = {
+    dateFormat: '<%=Refinery::Calendar.js_date_format %>',
+    timeFormat: '<%=Refinery::Calendar.js_time_format %>',
+    dateDelta: '<%=Refinery::Calendar.date_delta %>',
+    timeDelta: <%= Refinery::Calendar.time_delta %>
+  };
+  if (
+    document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll))
+      {
+    handleDates(dateOptions)
+  } else {
+    document.addEventListener("DOMContentLoaded", handleDates(dateOptions));
+  }
+</script>
+
