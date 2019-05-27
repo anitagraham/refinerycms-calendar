@@ -21,3 +21,4 @@ module Refinery
     self.page_url    = '/calendar'
   end
 end
+

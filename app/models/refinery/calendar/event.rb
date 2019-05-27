@@ -7,8 +7,8 @@ module Refinery
       extend FriendlyId
 
       split_accessor :from, :to,
-                     date_format: Refinery::Calendar.date_format,
-                     time_format: Refinery::Calendar.time_format
+                     date_format: "%A, %d %B, %Y",
+                     time_format: "%l:%M%P"
 
       friendly_id :title, :use => :slugged
 
