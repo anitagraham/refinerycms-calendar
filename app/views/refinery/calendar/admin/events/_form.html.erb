@@ -23,9 +23,6 @@
             <%= link_to t("#{part}", scope: "activerecord.attributes.refinery/calendar/event", default: part.to_s.titleize), "##{part}" %>
           </li>
         <% end %>
-        <li class='ui-state-default' id="poster_tab">
-          <%= link_to 'Poster', '#poster' %>
-        </li>
         <% ::Refinery::Calendar.tabs.each_with_index do |tab, tab_index| %>
           <li class='ui-state-default' id="custom_<%= tab.name %>_tab">
             <%= link_to tab.name.titleize, "#custom_tab_#{tab_index}" %>
@@ -39,17 +36,6 @@
             <%= f.text_area part, :rows => 20, :class => 'visual_editor widest' %>
           </div>
         <% end %>
-
-        <div class="page_part" id="poster">
-          <%= f.label :poster %>
-          <%= render :partial => "/refinery/admin/image_picker", :locals => {
-              :f => f,
-              :field => :poster_id,
-              :image => f.object.poster,
-              :toggle_image_display => false
-            }
-          %>
-        </div>
 
         <% ::Refinery::Calendar.tabs.each_with_index do |tab, tab_index| %>
           <div class='page_part' id='<%= "custom_tab_#{tab_index}" %>'>

@@ -7,13 +7,12 @@ module Refinery
       extend FriendlyId
 
       split_accessor :from, :to,
-                     date_format: Refinery::Calendar.ruby_date_format,
-                     time_format: Refinery::Calendar.ruby_time_format
+                     date_format: Refinery::Calendar.date_format,
+                     time_format: Refinery::Calendar.time_format
 
       friendly_id :title, :use => :slugged
 
       belongs_to :venue
-      belongs_to :poster, class_name: '::Refinery::Image'
 
       validates :title, :presence => true, :uniqueness => true
 
@@ -40,16 +39,14 @@ module Refinery
       scope :archive,  -> {where arel_table[:starts_at].lt Time.now}
 
       def tense
-        if from.present? or to.present?
+        if from.present?
           case
           when from.presence.future?
             'future'
-          when to.presence.past?
-            'past'
-          when from.presence.past? && to.presence.future?
+          when from.presence.past? && to.present? && to.presence.future?
             'present'
           else
-            'not sure'
+            'past'
           end
         end
       end
