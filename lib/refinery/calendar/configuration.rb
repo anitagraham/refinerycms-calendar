@@ -3,11 +3,14 @@ module Refinery
     include ActiveSupport::Configurable
 
     config_accessor  :js_date_format,
-                     :ruby_date_format,
                      :js_time_format,
+
+                     :ruby_date_format,
                      :ruby_time_format,
+
                      :date_delta,
                      :time_delta,
+
                      :page_url
 
     # these formats must match

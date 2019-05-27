@@ -5,7 +5,6 @@ Refinery::Core::Engine.routes.draw do
     get 'events/archive' => 'events#archive'
 
     resources :events, :only => [:index, :show]
-
     resources :venues, :only => [:index, :show]
   end
 

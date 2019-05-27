@@ -10,7 +10,6 @@ module Refinery
     require 'refinery/calendar/engine'
     require 'refinery/calendar/configuration'
 
-    autoload :Version, 'refinery/calendar/version'
     autoload :Tab, 'refinery/calendar/tabs'
 
     class << self

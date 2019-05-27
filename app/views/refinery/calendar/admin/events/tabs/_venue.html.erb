@@ -1,0 +1,7 @@
+<fieldset id="venue">
+  <h2>Venue</h2>
+  <div class="field">
+    <%= f.label :venue_id %>
+    <%= f.collection_select :venue_id, @venues, :id, :name, { include_blank: 'None' }, class: 'chzn-select', :'data-placeholder' => 'Search Venues', style: 'width: 300px;' %>
+  </div>
+</fieldset>

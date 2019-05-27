@@ -19,19 +19,19 @@ module Refinery
         )
       end
 
-      def self.register_calendar(tab)
-        tab.name = 'Details'
-        tab.partial = '/refinery/calendar/admin/events/tabs/event_details'
-      end
-
-
       config.after_initialize do
-
+        tabs = [
+          {title: 'Date and Time', partial: 'dateTime'},
+          {title: 'Ticketing',     partial: 'tickets'},
+          {title: 'Venue',         partial: 'venue'}
+        ]
         Refinery.register_extension(Refinery::Calendar)
-        Refinery::Calendar::Tab.register do |tab|
-          register_calendar tab
+        tabs.each do |t|
+          Refinery::Calendar::Tab.register do |tab|
+            tab.name = t.name
+            tab.partial = "/refinery/calendar/admin/events/tabs/#{t.partial}"
+          end
         end
-
       end
     end
   end
