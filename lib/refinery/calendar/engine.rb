@@ -28,7 +28,7 @@ module Refinery
         Refinery.register_extension(Refinery::Calendar)
         tabs.each do |t|
           Refinery::Calendar::Tab.register do |tab|
-            tab.name = t.name
+            tab.name = t.title
             tab.partial = "/refinery/calendar/admin/events/tabs/#{t.partial}"
           end
         end
