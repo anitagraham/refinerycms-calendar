@@ -17,8 +17,8 @@ handleDates = (options) => {
   let datetime = $('#datetime');
 
   datetime.find('.time').timepicker({
-    'showDuration': true,
-    'timeFormat': options.timeFormat
+    'showDuration': true
+    // 'timeFormat': options.timeFormat
   });
 
   datetime.find('.date').datepicker({

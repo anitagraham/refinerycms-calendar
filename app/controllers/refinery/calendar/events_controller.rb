@@ -8,7 +8,7 @@ module Refinery
       respond_to :html
 
       def index
-        @events = Event.upcoming.order(starts_at: :desc)
+        @events = Event.upcoming.order(starts_at: :desc).includes(:venue)
         present @page
       end
 
