@@ -3,17 +3,12 @@ module Refinery
     module Admin
       class EventsController < ::Refinery::AdminController
 
+
         before_action :find_venues, except: [:index, :destroy]
 
         crudify :'refinery/calendar/event',
                 sortable: false,
                 order: 'starts_at ASC'
-
-        def duplicate
-          @existing_event = Event.find(params[:id])
-          @event = @existing_event.dup
-          render :edit
-        end
 
         protected
 

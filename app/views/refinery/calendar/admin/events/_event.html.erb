@@ -9,10 +9,9 @@
   <span class="datetime"><%= event.from unless event.from.blank? %></span>
 
   <span class="actions">
-    <%= action_icon :dup, refinery.duplicate_calendar_admin_event_path(event), title: t('.duplicate') %>
-    <%= action_icon :edit, refinery.edit_calendar_admin_event_path(event), title: t('.edit') %>
+    <%= action_icon :edit,    refinery.edit_calendar_admin_event_path(event), title: t('.edit') %>
     <%= action_icon :preview, refinery.calendar_event_path(event), title: t('.view_live_html') %>
-    <%= action_icon :delete, refinery.calendar_admin_event_path(event), t('.delete'),
+    <%= action_icon :delete,  refinery.calendar_admin_event_path(event), t('.delete'),
                     class: 'cancel confirm-delete',
                     confirm: t('refinery.admin.delete.message', title: event.title) %>
   </span>
