@@ -1,5 +1,3 @@
-require 'responders'
-
 module Refinery
   module Calendar
     class EventsController < ::ApplicationController

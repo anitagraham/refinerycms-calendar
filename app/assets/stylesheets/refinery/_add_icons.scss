@@ -2,7 +2,7 @@
 @import 'refinery/mixins/icon';
 @import 'refinery/global/colours';
 @import 'font-awesome-sprockets', 'font-awesome';
-@import 'refinery/icons';
+@import 'refinery/components/icons';
 %icon-font { font-family: 'FontAwesome', Helvetica, Arial, sans-serif; }
 $icon_default_colour: black;
 
