@@ -1,6 +1,6 @@
 @import 'refinery/mixins/icon_base';
 @import 'refinery/mixins/icon';
-@import 'refinery/colours';
+@import 'refinery/global/colours';
 @import 'font-awesome-sprockets', 'font-awesome';
 @import 'refinery/icons';
 %icon-font { font-family: 'FontAwesome', Helvetica, Arial, sans-serif; }
