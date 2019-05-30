@@ -5,14 +5,12 @@ module Refinery
 
         before_action :find_venues, except: [:index, :destroy]
 
-
         crudify :'refinery/calendar/event',
                 sortable: false,
                 order: 'starts_at ASC'
 
         def duplicate
           @existing_event = Event.find(params[:id])
-          #create new object with attributes of existing record
           @event = @existing_event.dup
           render :edit
         end

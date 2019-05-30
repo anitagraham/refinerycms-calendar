@@ -15,6 +15,7 @@ Refinery::Core::Engine.routes.draw do
 
         resources :events, except: :show do
           post :duplicate, on: :member
+
           collection do
             post :update_positions
           end
