@@ -92,6 +92,24 @@ module Refinery
           end
         end
 
+        describe "duplicate" do
+          let!(:event) {FactoryBot.create(:event, :title => "UniqueTitleOne") }
+
+          it "duplicates the event" do
+            visit refinery.calendar_admin_events_path
+            within ".actions" do
+              click_link "Duplicate this event"
+            end
+
+            fill_in "Title", with: "Another Unique Title"
+            click_button "Save"
+
+            expect(page).to have_content("'Another Unique Title' was created")
+            expect(Refinery::Calender::Event.count).to eq(2)
+          end
+
+        end
+
       end
     end
   end

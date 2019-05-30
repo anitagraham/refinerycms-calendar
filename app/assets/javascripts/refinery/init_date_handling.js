@@ -18,11 +18,10 @@ handleDates = (options) => {
 
   datetime.find('.time').timepicker({
     'showDuration': true
-    // 'timeFormat': options.timeFormat
+
   });
 
   datetime.find('.date').datepicker({
-    dateFormat: options.dateFormat,
     autoclose: true
   });
 

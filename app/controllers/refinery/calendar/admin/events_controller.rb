@@ -10,6 +10,13 @@ module Refinery
                 sortable: false,
                 order: 'starts_at ASC'
 
+        def duplicate
+          @existing_event = Event.find(params[:id])
+          #create new object with attributes of existing record
+          @event = @existing_event.dup
+          render :edit
+        end
+
         protected
 
         def event_params
