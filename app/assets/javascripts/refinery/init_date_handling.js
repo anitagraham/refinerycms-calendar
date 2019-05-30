@@ -8,6 +8,8 @@ var handleDates;
 handleDates = (options) => {
 
   const defaults = {
+    dateFormat: 'DD, d MM, yy',
+    timeFormat: 'g:ia',
     dateDelta: 0,
     timeDelta: '30'
   };
@@ -17,12 +19,13 @@ handleDates = (options) => {
   let datetime = $('#datetime');
 
   datetime.find('.time').timepicker({
-    'showDuration': true
-
+    'showDuration': true,
+    'timeFormat': options.timeFormat
   });
 
   datetime.find('.date').datepicker({
-    autoclose: true
+    'autoclose': true,
+    'format': options.dateFormat
   });
 
   let datepair = datetime.datepair({
