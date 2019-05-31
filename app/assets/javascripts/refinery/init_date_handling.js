@@ -8,7 +8,7 @@ var handleDates;
 handleDates = (options) => {
 
   const defaults = {
-    dateFormat: 'DD, d MM, yy',
+    dateFormat: 'd MM, yy',
     timeFormat: 'g:ia',
     dateDelta: 0,
     timeDelta: '30'

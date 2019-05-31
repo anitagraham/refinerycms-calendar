@@ -9,7 +9,7 @@ module Refinery
 
                      :page_url
 
-    # End_date/time are automatically set to the start_date/time on the same day, 1 hour later
+    # End_date/times are automatically set to the start_date/time on the same day, 1 hour later
     self.date_delta = '0'        # same day
     self.time_delta = '60'       # 60 minutes
 
