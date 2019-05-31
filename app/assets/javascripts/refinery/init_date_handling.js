@@ -42,11 +42,15 @@ handleDates = (options) => {
     defaultDateDelta: options.dateDelta,         // days
     defaultTimeDelta: options.timeDelta * 60 * 1000,  // hours -> milliseconds
     parseDate: (input) => {
-      return $(input).datepicker('getDate');
-
+      var val = $(input).datepicker('getDate');
+      if (!val) {
+        return null;
+      }
+      var utc = new Date(val);
+      return utc && new Date(utc.getTime() + (utc.getTimezoneOffset() * 60000));
     },
     updateDate: (input, dateObj) => {
-      return $(input).datepicker('setDate', dateObj);
+      $(input).datepicker('setDate', new Date(v.getTime() - (v.getTimezoneOffset() * 60000)));
     }
   });
 };
