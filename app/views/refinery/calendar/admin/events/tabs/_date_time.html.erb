@@ -4,7 +4,7 @@
 
     <div class="field">
       <%= f.label "From" %>
-      <%= f.text_field :from_date, class: 'date start datetime_range', placeholder: 'date', value: ( l :from_date if from_date? )  %>
+      <%= f.text_field :from_date, class: 'date start datetime_range', placeholder: 'date' %>
       <%= f.text_field :from_time, class: 'time start datetime_range', placeholder: 'time'  %>
       <%= f.label "To" %>
       <%= f.text_field :to_time, class: 'time end datetime_range', placeholder: 'time'  %>
@@ -15,17 +15,12 @@
 </div>
 <script>
   dateOptions = {
-    dateFormat:'<%=Refinery::Calendar.date_format %>',
+    dateFormat:  'D MMMM, YYYY',
     timeFormat:'<%=Refinery::Calendar.time_format %>',
     dateDelta: '<%=Refinery::Calendar.date_delta %>',
     timeDelta: <%= Refinery::Calendar.time_delta %>
   };
-  if (
-    document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll))
-      {
-    handleDates(dateOptions)
-  } else {
-    document.addEventListener("DOMContentLoaded", handleDates(dateOptions));
-  }
+  let setUpDateHandler = function(){ handleDates(dateOptions) };
+  domReady(setUpDateHandler)
 </script>
 

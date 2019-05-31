@@ -4,6 +4,15 @@ function extend(obj, src) {
   return obj;
 }
 
+function domReady(callback){
+  if (
+    document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll))
+      { callback }
+  else {
+    document.addEventListener("DOMContentLoaded", callback );
+  }
+}
+
 var handleDates;
 handleDates = (options) => {
 
