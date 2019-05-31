@@ -17,7 +17,7 @@ var handleDates;
 handleDates = (options) => {
 
   const defaults = {
-    dateFormat: 'd MM, yy',
+    dateFormat: 'mm/dd/yy',
     timeFormat: 'g:ia',
     dateDelta: 0,
     timeDelta: '30'
@@ -35,11 +35,11 @@ handleDates = (options) => {
 
   datetime.find('.date').datepicker({
     'autoclose': true,
-    'format': options.dateFormat
+    'dateFormat': options.dateFormat
   });
 
   let datepair = datetime.datepair({
-    defaultDateDelta: options.dateDelta,         // days
+    defaultDateDelta: options.dateDelta,              // days
     defaultTimeDelta: options.timeDelta * 60 * 1000,  // hours -> milliseconds
     parseDate: (input) => {
       var val = $(input).datepicker('getDate');
