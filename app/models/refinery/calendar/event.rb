@@ -6,7 +6,7 @@ module Refinery
       extend TimeSplitter::Accessors
       extend FriendlyId
 
-      split_accessor :from, :to, date_format: "%m/%d/%Y", time_format: Refinery::Calendar.time_format
+      split_accessor :from, :to, date_format: "%d %B %Y", time_format: Refinery::Calendar.time_format
 
       friendly_id :title, :use => :slugged
 
