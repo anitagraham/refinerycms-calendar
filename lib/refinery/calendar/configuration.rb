@@ -17,8 +17,10 @@ module Refinery
 
     self.date_format = "%D"               # used by timesplitter (Rails Date#strftime format)
     self.time_format = "%I:%M%p"          # used by timesplitter (Rails Time#strftime format)
+
+    # datepicker and timepicker are used by http://www.jonthornton.com/Datepair.js/
     self.dp_date_format = "mm/dd/yy"      # datepicker default format (jquery-ui-datepicker, formats at https://api.jqueryui.com/datepicker/#utility-formatDate)
-    self.tp_time_format = "g:ia"          # timepicker default format (jquery-timepicker, PHP date formatting syntax)
+    self.tp_time_format = "g:ia"          # timepicker default format (https://github.com/jonthornton/jquery-timepicker, PHP date formatting syntax)
 
     self.page_url    = '/calendar'
   end

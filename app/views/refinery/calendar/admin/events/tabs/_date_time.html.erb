@@ -15,10 +15,10 @@
 </div>
 <script>
   dateOptions = {
-    dateFormat: <%=h Refinery::Calendar.dp_date_format.inspect %>,
-    timeFormat: <%=h Refinery::Calendar.tp_time_format.inspect %>,
-    dateDelta: <%=h Refinery::Calendar.date_delta.inspect %>,
-    timeDelta: <%=h Refinery::Calendar.time_delta.inspect %>
+    dateFormat: '<%= Refinery::Calendar.dp_date_format %>',
+    timeFormat: '<%= Refinery::Calendar.tp_time_format %>',
+    dateDelta: '<%=Refinery::Calendar.date_delta %>',
+    timeDelta: '<%= Refinery::Calendar.time_delta %>'
   };
   let setUpDateHandler = function(){ handleDates(dateOptions) };
   domReady(setUpDateHandler)
