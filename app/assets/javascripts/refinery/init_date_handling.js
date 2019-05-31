@@ -24,7 +24,6 @@ handleDates = (options) => {
   };
 
   options = extend(defaults, options);
-  console.log(options);
 
   let datetime = $('#datetime');
 

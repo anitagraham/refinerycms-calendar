@@ -6,7 +6,7 @@
             class: :title,
             title: t('.edit')
   %>
-  <span class="datetime"><%= event.from unless event.from.blank? %></span>
+  <span class="datetime"><%= event.from_date.strftime(Refinery::Calendar.date_format) unless event.from.blank? %></span>
 
   <span class="actions">
     <%= action_icon :edit,    refinery.edit_calendar_admin_event_path(event), t('.edit') %>
