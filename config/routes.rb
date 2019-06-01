@@ -14,7 +14,7 @@ Refinery::Core::Engine.routes.draw do
         root to:'events#index'
 
         resources :events, except: :show do
-
+          get 'calendar/events/*path/duplicate', to: 'calendar_events#duplicate', as: 'duplicate_event'
           collection do
             post :update_positions
           end
