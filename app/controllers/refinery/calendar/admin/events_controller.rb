@@ -10,13 +10,6 @@ module Refinery
                 sortable: false,
                 order: 'starts_at ASC'
 
-        def duplicate
-          original_event = @event
-          @event = original_event.dup
-          @event.title += ' copy'
-          render :edit
-        end
-
         protected
 
         def event_params
