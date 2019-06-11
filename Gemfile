@@ -1,8 +1,9 @@
 source "https://rubygems.org"
 
 gemspec
+gem 'refinerycms', git: 'https://github.com/anitagraham/refinerycms', branch: 'duplicate'
 
-git "https://github.com/anitagraham/refinerycms", branch: "master" do
+git "https://github.com/anitagraham/refinerycms", branch: "duplicate" do
   gem "refinerycms"
 
   group :test do

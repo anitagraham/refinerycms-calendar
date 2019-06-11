@@ -41,6 +41,7 @@ en:
             view_live_html: View this event live <br/><em>(opens in a new window)</em>
             edit: Edit this event
             delete: Remove this event forever
+            duplicate: Make a copy of this event
       venues:
         show:
           other: Other Venues

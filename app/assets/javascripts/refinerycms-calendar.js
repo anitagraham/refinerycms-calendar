@@ -14,5 +14,5 @@
 //= require jquery-ui/widgets/datepicker
 //= require datepair
 //= require jquery.datepair
-//= require refinery/init_edit_interface.js
+//= require refinery/init_edit_interface
 //= require refinery/init_date_handling

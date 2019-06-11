@@ -6,12 +6,11 @@
             class: :title,
             title: t('.edit')
   %>
-  <span class="datetime"><%= event.from_date.strftime(Refinery::Calendar.date_format) unless event.from.blank? %></span>
+  <span class="datetime"><%= event.from_date unless event.from.blank? %></span>
 
   <span class="actions">
     <%= action_icon :edit,    refinery.edit_calendar_admin_event_path(event), t('.edit') %>
-    <%= action_icon :duplicate, refinery.duplicate_calendar_admin_event_path(event), t('.edit') %>
-    <%= action_icon :preview, refinery.calendar_event_path(event), title: t('.view_live_html') %>
+    <%= action_icon :preview, refinery.calendar_event_path(event), t('.view_live_html') %>
     <%= action_icon :delete,  refinery.calendar_admin_event_path(event), t('.delete'),
                     class: 'cancel confirm-delete',
                     confirm: t('refinery.admin.delete.message', title: event.title) %>
