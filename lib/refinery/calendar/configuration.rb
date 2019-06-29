@@ -8,7 +8,6 @@ module Refinery
                      :tp_time_format,
                      :date_delta,
                      :time_delta,
-
                      :page_url
 
     # End_date/times are automatically set to the start_date/time on the same day, 1 hour later
@@ -26,21 +25,3 @@ module Refinery
   end
 end
 
-Refinery::Calendar.configure do |config|
-  # used by Rails gem time_splitter
-  config.date_format = "%A ,%d %B, %Y"          # Sunday, 5 January, 2019
-  config.time_format = "%l:%M%P"                # 6:06pm
-
-  # used by javascript datepicker (https://jqueryui.com/datepicker/)
-  config.dp_date_format = 'dd MM yy'
-
-  # used by javascript timepicker (https://github.com/jonthornton/jquery-timepicker)
-  config.tp_time_format = 'g:ia'
-
-  # used by datepair.js to fill end time and date, based on start time and date (http://www.jonthornton.com/Datepair.js/)
-  config.date_delta = '0'                       # same day
-  config.time_delta = 60                        # one hour in minutes
-
-  # Used by Refinery
-  config.page_url = '/calendar'
-end
