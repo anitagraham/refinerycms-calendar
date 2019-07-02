@@ -25,7 +25,6 @@ module Refinery
           {title: 'Date and Time', partial: 'date_time'},
           {title: 'Ticketing',     partial: 'tickets'},
           {title: 'Venue',         partial: 'venue'},
-          {title: 'Images',        partial: 'refinery/admin/pages/tabs/images'}
         ]
         Refinery.register_extension(Refinery::Calendar)
         tabs.each do |t|
