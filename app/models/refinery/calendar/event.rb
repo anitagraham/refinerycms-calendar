@@ -7,8 +7,11 @@ module Refinery
       extend FriendlyId
 
       split_accessor :from, :to, date_format: Refinery::Calendar.date_format, time_format: Refinery::Calendar.time_format
-
       friendly_id :title, :use => :slugged
+
+
+      has_many_page_images
+      belongs_to :poster, class_name: Refinery::Image
 
       belongs_to :venue
 
