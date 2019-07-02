@@ -11,7 +11,7 @@ module Refinery
 
 
       has_many_page_images
-      belongs_to :poster, class_name: Refinery::Image
+      belongs_to :poster, class_name: 'Refinery::Image'
 
       belongs_to :venue
 
