@@ -40,7 +40,7 @@
   </div>
 
   <%= render '/refinery/admin/form_actions', f: f,
-             continue_editing: false,
+             continue_editing: true,
              delete_title: t('refinery.calendar.admin.events.event.delete'),
              delete_confirmation: t('refinery.admin.delete.message', title: @event.title) %>
 
