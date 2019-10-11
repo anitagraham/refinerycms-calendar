@@ -11,7 +11,6 @@
     <%end %>
   </p>
 
-
   <% if @event.registration_link.present? %>
     <p><%= link_to t('.register', default: 'Register for this event'), @event.registration_link %></p>
   <% end -%>
@@ -23,7 +22,11 @@
   <div class="event_description">
     <%=raw @event.description %>
   </div>
+  <% if event.images %>
+    <div class="event_images">
+      <%= render partial: 'image', collection: @event.images_with_captions %>
+    </div>
+  <% end %>
 <% end %>
-
 
 <%= render '/refinery/content_page' %>
